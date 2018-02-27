@@ -4,15 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <RadioButton
-        android:id="@+id/radioButColones"
+    <CheckBox
+        android:id="@+id/CheckButColones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="A Colones" />
 
-    <RadioButton
-        android:id="@+id/radioButDolares"
+    <CheckBox
+        android:id="@+id/CheckButDolares"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -23,14 +23,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:hint="Escriba la cantidad de dinero a convertir" />
+        android:hint="Escriba la cantidad de dinero a convertir"
+        android:inputType="number" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:hint="Convertir"
-        android:onClick="calcularEdad" />
+        android:onClick="convertirDinero" />
 
 
 </LinearLayout>

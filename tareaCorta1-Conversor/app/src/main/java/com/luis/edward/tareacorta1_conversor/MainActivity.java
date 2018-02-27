@@ -3,9 +3,13 @@ package com.luis.edward.tareacorta1_conversor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,28 +18,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void calcularEdad(View view)
+    public void convertirDinero(View view)
     {
-        RadioButton radButColones=findViewById(R.id.radioButColones);
-        RadioButton radButDolores=findViewById(R.id.radioButDolares);
+        CheckBox chkButColones=findViewById(R.id.CheckButColones);
+        CheckBox chkButDolores=findViewById(R.id.CheckButDolares);
         EditText montoEdit=findViewById(R.id.editMonto);
-        Integer monto=Integer.valueOf(montoEdit.getText().toString());
-        if (radButColones.isChecked() && !radButDolores.isChecked())
+        Double monto=Double.valueOf(montoEdit.getText().toString());
+        if (chkButColones.isChecked() && !chkButDolores.isChecked())
         {
-            Integer montoColones=monto*571;
-            String temp=montoEdit.getText().toString()+"dolares, equivale a: "+String.valueOf(montoColones)+" colones";
+            Double montoColones=monto*571;
+            String temp=montoEdit.getText().toString()+" dólares, equivale a: "+String.valueOf(montoColones)+" colones";
             Toast toast = Toast.makeText(this,temp, Toast.LENGTH_LONG);
             toast.show();
         }
         else
         {
-            if (!radButColones.isChecked() && radButDolores.isChecked())
+            if (!chkButColones.isChecked() && chkButDolores.isChecked())
             {
-                Integer montoDolares=monto/571;
-                String temp=montoEdit.getText().toString()+"colones, equivale a: "+String.valueOf(montoColones)+" colones";
+                Double montoDolares= monto/571;
+                //double dTemp = montoDolares;
+                //DecimalFormat fTemp = new DecimalFormat("##.00000");
+                //montoDolares=Double.valueOf(fTemp.format(dTemp));
+                String temp=montoEdit.getText().toString()+" colones, equivale a: "+String.valueOf(montoDolares)+" dólares";
                 Toast toast = Toast.makeText(this,temp, Toast.LENGTH_LONG);
                 toast.show();
-            }
+
             }
 
 
